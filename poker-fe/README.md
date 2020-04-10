@@ -1,68 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##### What's Being Used?
 
-## Available Scripts
+- [react](http://facebook.github.io/react/) for managing the presentation logic of application.
+- [redux](http://redux.js.org/) for generating and managing state model.
+- [redux-thunk](https://www.npmjs.com/package/redux-thunk) for redux middleware
+- [axios](https://www.npmjs.com/package/axios) for making AJAX calls to a server.
+- [bootstrap](https://www.npmjs.com/package/bootstrap) for frontend template
+- [node-sass](https://npmjs.org/package/node-sass) for sass support
 
-In the project directory, you can run:
+## Getting Started
 
-### `yarn start`
+In order to get started developing, you'll need to do a few things first.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Install all of the `node_modules` required for the package. Depending on the computer's configuration, you may need to prefix this command with a `sudo`.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```
+npm install
+```
 
-### `yarn test`
+or
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+sudo npm install
+```
 
-### `yarn build`
+`yarn` can be used it is already installed
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+yarn install
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+or
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+sudo yarn install
+```
 
-### `yarn eject`
+2. Create `.env` environment file by making a duplicate of the `.env-example` and remove the `-example`. In the `.env` file, set the `NODE_PATH` to take advantage of Absolute Path Imports without ejecting.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+NODE_PATH=./src
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Lastly, run the start command to get the project off the ground.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+or
 
-## Learn More
+```
+yarn start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Head over to [http://localhost:3000](http://localhost:3000) to see the app live!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## File Structure
 
-### Code Splitting
+### build/
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+This is where application will be compiled. Assets, like images and fonts, should be placed directly within this folder. Also in this folder is a default `index.html` file for serving up the application.
 
-### Analyzing the Bundle Size
+### src/
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The client folder houses the client application for project. This is where client-side Javascript components (and their directly accompanying styles) live.
