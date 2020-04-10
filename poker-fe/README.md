@@ -57,6 +57,14 @@ yarn start
 
 ## File Structure
 
+### jsconfig.json
+
+This file has been added to configure the absolute paths in project.
+
+### .eslintrc
+
+This file has been added to configure the linting operations in application.
+
 ### build/
 
 This is where application will be compiled. Assets, like images and fonts, should be placed directly within this folder. Also in this folder is a default `index.html` file for serving up the application.
