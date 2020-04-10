@@ -3,6 +3,7 @@
 - [react](http://facebook.github.io/react/) for managing the presentation logic of application.
 - [redux](http://redux.js.org/) for generating and managing state model.
 - [redux-thunk](https://www.npmjs.com/package/redux-thunk) for redux middleware
+- [redux-router-dom](https://www.npmjs.com/package/react-router-dom) for handling the page routing
 - [axios](https://www.npmjs.com/package/axios) for making AJAX calls to a server.
 - [bootstrap](https://www.npmjs.com/package/bootstrap) for frontend template
 - [node-sass](https://npmjs.org/package/node-sass) for sass support
