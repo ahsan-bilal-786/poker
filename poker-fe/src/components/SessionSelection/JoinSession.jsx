@@ -1,17 +1,26 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Form } from "react-bootstrap";
 
 const JoinSessionCard = () => {
   return (
     <Card>
-      <Card.Header as="h5" className="text-center">
+      <Card.Header as='h5' className='text-center'>
         Join Session
       </Card.Header>
-      <Card.Body className="text-center">
-        <div className="d-block mb-2">
-          <img src="http://via.placeholder.com/200x200" alt="join session" />
+      <Card.Body className='text-center'>
+        <div className='d-block mb-2'>
+          <img src='http://via.placeholder.com/200x200' alt='join session' />
         </div>
-        <Button variant="primary">Join</Button>
+        <Form>
+          <Form.Group controlId='sessionId'>
+            <Form.Control
+              type='text'
+              placeholder='Enter Session ID'
+              className='text-center'
+            />
+          </Form.Group>
+          <Button variant='primary'>Join</Button>
+        </Form>
       </Card.Body>
     </Card>
   );
