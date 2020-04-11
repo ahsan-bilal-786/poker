@@ -7,6 +7,7 @@ import DefaultLayout from "layouts/DefaultLayout";
 import SessionSelection from "pages/SessionSelection";
 import JoinSession from "pages/JoinSession";
 import CreateSession from "pages/CreateSession";
+import Polling from "pages/Polling";
 import "./App.css";
 
 const hist = createBrowserHistory();
@@ -17,6 +18,7 @@ function App() {
     <Provider store={store}>
       <Router history={hist}>
         <Switch>
+          <Route path='/polling' component={DefaultLayout(Polling)} />
           <Route
             path='/create-session'
             component={DefaultLayout(CreateSession)}
