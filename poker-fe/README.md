@@ -87,5 +87,5 @@ The files get created automatically by create-react-app. The files are three:
 
 All the files in the Public folder can be referenced from the index.html file by `%PUBLIC_URL%` syntax.
 
-[Read More # 1](https://create-react-app.dev/docs/using-the-public-folder/)
-[Read More # 2](https://medium.com/@jenniferdobak/the-public-folder-and-favicons-in-create-react-app-8dc2cc1d492b)
+- [Read More # 1](https://create-react-app.dev/docs/using-the-public-folder/)
+- [Read More # 2](https://medium.com/@jenniferdobak/the-public-folder-and-favicons-in-create-react-app-8dc2cc1d492b)
