@@ -76,4 +76,16 @@ This is where application will be compiled. Assets, like images and fonts, shoul
 
 The client folder houses the client application for project. This is where client-side Javascript components (and their directly accompanying styles) live.
 
-### [public/](https://create-react-app.dev/docs/using-the-public-folder/)
+### public/
+
+The public directory is used to keep the static files
+The files get created automatically by create-react-app. The files are three:
+
+- favicon.ico
+- index.html
+- manifest.json
+
+All the files in the Public folder can be referenced from the index.html file by `%PUBLIC_URL%` syntax.
+
+[Read More # 1](https://create-react-app.dev/docs/using-the-public-folder/)
+[Read More # 2](https://medium.com/@jenniferdobak/the-public-folder-and-favicons-in-create-react-app-8dc2cc1d492b)
