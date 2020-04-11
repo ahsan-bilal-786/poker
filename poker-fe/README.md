@@ -61,10 +61,12 @@ yarn start
 ### jsconfig.json
 
 This file has been added to configure the absolute paths in project.
+[Read More](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)
 
 ### .eslintrc
 
 This file has been added to configure the linting operations in application.
+[Read more](https://youtu.be/bfyI9yl3qfE)
 
 ### build/
 
@@ -73,3 +75,5 @@ This is where application will be compiled. Assets, like images and fonts, shoul
 ### src/
 
 The client folder houses the client application for project. This is where client-side Javascript components (and their directly accompanying styles) live.
+
+### [public/](https://create-react-app.dev/docs/using-the-public-folder/)
