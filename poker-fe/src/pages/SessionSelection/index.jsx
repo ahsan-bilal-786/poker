@@ -1,35 +1,7 @@
-import React, { Component } from "react";
-import { Card, Button, Container, Row, Col, Navbar } from "react-bootstrap";
-
-const CreateSessionCard = () => {
-  return (
-    <Card className='text-center'>
-      <Card.Header as='h5'>Create Session</Card.Header>
-      <Card.Body>
-        <div className='d-block mb-2'>
-          <img src='http://via.placeholder.com/200x200' alt='create session' />
-        </div>
-        <Button variant='primary'>Create</Button>
-      </Card.Body>
-    </Card>
-  );
-};
-
-const JoinSessionCard = () => {
-  return (
-    <Card>
-      <Card.Header as='h5' className='text-center'>
-        Join Session
-      </Card.Header>
-      <Card.Body className='text-center'>
-        <div className='d-block mb-2'>
-          <img src='http://via.placeholder.com/200x200' alt='join session' />
-        </div>
-        <Button variant='primary'>Join</Button>
-      </Card.Body>
-    </Card>
-  );
-};
+import React from "react";
+import { Container, Row, Col, Navbar } from "react-bootstrap";
+import JoinSessionCard from "components/SessionSelection/JoinSession";
+import CreateSessionCard from "components/SessionSelection/CreateSession";
 
 const SessionSelection = () => {
   return (
