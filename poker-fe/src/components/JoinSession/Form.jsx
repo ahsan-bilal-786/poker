@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Card, Button, Form } from "react-bootstrap";
 
-const JoinSessionForm = ({ history }) => {
+const JoinSessionForm = ({ history, sessionId, setUserName }) => {
   const [userName, handleUserName] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
-    history.push("polling");
+    if (userName !== "") {
+      setUserName(userName);
+      history.push(`/polling/${sessionId}`);
+    }
   };
   return (
     <Card className='text-center '>
