@@ -3,14 +3,14 @@ import { Row, Col } from "react-bootstrap";
 import JoinSessionCard from "components/SessionSelection/JoinSession";
 import CreateSessionCard from "components/SessionSelection/CreateSession";
 
-const SessionSelection = () => {
+const SessionSelection = ({ history }) => {
   return (
     <Row className='align-items-center h-100 mt-5'>
       <Col sm='6'>
-        <CreateSessionCard />
+        <CreateSessionCard history={history} />
       </Col>
       <Col sm='6 '>
-        <JoinSessionCard />
+        <JoinSessionCard history={history} />
       </Col>
     </Row>
   );
