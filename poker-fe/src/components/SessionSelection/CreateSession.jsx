@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uuid from "uuid/v4";
 import { Card, Button, Form } from "react-bootstrap";
 
 class CreateSessionCard extends Component {
@@ -18,7 +19,10 @@ class CreateSessionCard extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.history.push("/create-session");
+    const sessionId = uuid();
+    this.props.setPollType(this.state.pollType);
+    this.props.setSessionId(sessionId);
+    this.props.history.push(`/create-session/${sessionId}`);
   };
 
   render() {
