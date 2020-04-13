@@ -3,6 +3,7 @@ import {
   SET_SESSION_ID,
   SET_SESSION_NAME,
   SET_USER_NAME,
+  SET_POLLS,
 } from "store/actions/types";
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   sessionId: null,
   sessionName: null,
   userName: null,
+  polls: [],
 };
 
 function reducer(state = initialState, action) {
@@ -25,6 +27,9 @@ function reducer(state = initialState, action) {
       break;
     case SET_USER_NAME:
       state = { ...state, userName: action.userName };
+      break;
+    case SET_POLLS:
+      state = { ...state, polls: action.polls };
       break;
     default:
   }

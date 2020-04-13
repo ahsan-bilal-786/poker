@@ -2,19 +2,35 @@ import React from "react";
 import { Row } from "react-bootstrap";
 import Card from "components/Polling/Card";
 
-const SelectedPollSection = () => {
+const SelectedPollSection = ({ pollType, setPolls }) => {
   return (
     <Row className='border rounded px-2 py-3'>
-      <Card value='0' />
-      <Card value='1' />
-      <Card value='2' />
-      <Card value='3' />
-      <Card value='4' />
-      <Card value='5' />
-      <Card value='6' />
-      <Card value='7' />
-      <Card value='8' />
-      <Card value='9' />
+      {pollType === "fibnocci" && (
+        <>
+          <Card value='0' handleClick={setPolls} />
+          <Card value='0.5' handleClick={setPolls} />
+          <Card value='1' handleClick={setPolls} />
+          <Card value='2' handleClick={setPolls} />
+          <Card value='3' handleClick={setPolls} />
+          <Card value='5' handleClick={setPolls} />
+          <Card value='8' handleClick={setPolls} />
+          <Card value='13' handleClick={setPolls} />
+          <Card value='20' handleClick={setPolls} />
+          <Card value='40' handleClick={setPolls} />
+          <Card value='100' handleClick={setPolls} />
+          <Card value='?' handleClick={setPolls} />
+        </>
+      )}
+      {pollType === "t-shirt" && (
+        <>
+          <Card value='xs' handleClick={setPolls} />
+          <Card value='sm' handleClick={setPolls} />
+          <Card value='m' handleClick={setPolls} />
+          <Card value='l' handleClick={setPolls} />
+          <Card value='xl' handleClick={setPolls} />
+          <Card value='xxl' handleClick={setPolls} />
+        </>
+      )}
     </Row>
   );
 };
