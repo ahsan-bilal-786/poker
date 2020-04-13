@@ -19,10 +19,10 @@ const Polling = ({ pollType, userName, sessionId, polls, setPolls }) => {
         </Col>
       </Row>
       <Row className='h-100 mt-2'>
-        <Col sm='4'>
+        <Col sm='3'>
           <Members users={[userName]} />
         </Col>
-        <Col sm='8'>
+        <Col sm='9'>
           <SelectedPolls polls={polls} />
           <AvailablePolls pollType={pollType} setPolls={handleCardSelection} />
         </Col>

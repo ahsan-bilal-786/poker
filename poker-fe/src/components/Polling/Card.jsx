@@ -43,7 +43,7 @@ const CardMapping = {
 const Card = ({ value, handleClick }) => {
   if (value && CardMapping[value.toString()])
     return (
-      <Col sm='3' className='text-center mb-2'>
+      <Col sm='2' className='text-center mb-2'>
         <BSCard>
           <BSCard.Body
             className='p-0 cursor-pointer'
