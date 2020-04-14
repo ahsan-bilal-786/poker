@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Card, Button, Form } from "react-bootstrap";
+import * as API from "api";
 
 const CreateSessionForm = ({
   history,
   sessionId,
   setUserName,
   setSessionName,
+  pollType,
 }) => {
   const [sessionName, handleSessionName] = useState("");
   const [userName, handleUserName] = useState("");
@@ -14,6 +16,7 @@ const CreateSessionForm = ({
     if (sessionName !== "" && userName !== "") {
       setUserName(userName);
       setSessionName(sessionName);
+      API.createSession(userName, sessionName, sessionId, pollType);
       history.push(`/polling/${sessionId}`);
     }
   };
@@ -28,7 +31,6 @@ const CreateSessionForm = ({
             <Form.Control
               required
               type='text'
-              autoComplete={false}
               name='sessionName'
               placeholder='Enter Session name'
               className='text-center'
@@ -40,7 +42,6 @@ const CreateSessionForm = ({
             <Form.Label>Your Name</Form.Label>
             <Form.Control
               required
-              autoComplete={false}
               type='text'
               name='userName'
               placeholder='Enter your name'

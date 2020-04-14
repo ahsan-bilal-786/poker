@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import { Card, Button, Form } from "react-bootstrap";
+import * as API from "api";
 
-const JoinSessionForm = ({ history, sessionId, setUserName }) => {
+const JoinSessionForm = ({
+  history,
+  sessionId,
+  setUserName,
+  setSessionName,
+  setPollType,
+}) => {
   const [userName, handleUserName] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
     if (userName !== "") {
+      const session = API.getSession(sessionId);
       setUserName(userName);
+      setSessionName(session.sessionName);
+      setPollType(session.pollType);
+      API.joinSession(userName, sessionId);
       history.push(`/polling/${sessionId}`);
     }
   };
@@ -19,7 +30,6 @@ const JoinSessionForm = ({ history, sessionId, setUserName }) => {
             <Form.Label>Your Name</Form.Label>
             <Form.Control
               required
-              autoComplete={false}
               type='text'
               placeholder='Enter your name'
               className='text-center'

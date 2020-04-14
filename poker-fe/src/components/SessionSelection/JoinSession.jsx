@@ -26,7 +26,6 @@ const JoinSessionCard = ({ history, setSessionId }) => {
               type='text'
               placeholder='Enter Session ID'
               className='text-center'
-              autoComplete={false}
               value={sessionId}
               onChange={(e) => {
                 handleSessionId(e.target.value);
