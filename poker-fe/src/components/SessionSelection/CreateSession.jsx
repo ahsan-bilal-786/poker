@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import uuid from "uuid/v4";
 import { Card, Button, Form } from "react-bootstrap";
+import { getBaseUrl } from "config";
 
 class CreateSessionCard extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class CreateSessionCard extends Component {
     const sessionId = uuid();
     this.props.setPollType(this.state.pollType);
     this.props.setSessionId(sessionId);
-    this.props.history.push(`/create-session/${sessionId}`);
+    this.props.history.push(getBaseUrl(`/create-session/${sessionId}`));
   };
 
   render() {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card, Button, Form } from "react-bootstrap";
+import { getBaseUrl } from "config";
 
 const JoinSessionCard = ({ history, setSessionId }) => {
   const [sessionId, handleSessionId] = useState("");
@@ -7,7 +8,7 @@ const JoinSessionCard = ({ history, setSessionId }) => {
     event.preventDefault();
     if (sessionId !== "") {
       setSessionId(sessionId);
-      history.push(`/join-session/${sessionId}`);
+      history.push(getBaseUrl(`/join-session/${sessionId}`));
     }
   };
   return (

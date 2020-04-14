@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card, Button, Form } from "react-bootstrap";
+import { getBaseUrl } from "config";
 import * as API from "api";
 
 const JoinSessionForm = ({
@@ -18,7 +19,7 @@ const JoinSessionForm = ({
       setSessionName(session.sessionName);
       setPollType(session.pollType);
       API.joinSession(userName, sessionId);
-      history.push(`/polling/${sessionId}`);
+      history.push(getBaseUrl(`/polling/${sessionId}`));
     }
   };
   return (
