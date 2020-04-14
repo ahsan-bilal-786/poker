@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "91d23bf34ab3fa3bc4908f342aafdded",
+    "revision": "80d65435a063d7a2ddef9ed9eb5a51c0",
     "url": "/poker/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/poker/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "f528600c5309e6f6dd5f",
+    "revision": "e63d0ff5ef431772a5f8",
     "url": "/poker/static/css/main.5337afa8.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/poker/static/js/2.7e8a3b50.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f528600c5309e6f6dd5f",
-    "url": "/poker/static/js/main.a9465aaa.chunk.js"
+    "revision": "e63d0ff5ef431772a5f8",
+    "url": "/poker/static/js/main.33a9185a.chunk.js"
   },
   {
     "revision": "15a945513e60dd4bde1b",
