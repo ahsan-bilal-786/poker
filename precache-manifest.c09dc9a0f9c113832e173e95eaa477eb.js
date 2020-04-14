@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "80d65435a063d7a2ddef9ed9eb5a51c0",
+    "revision": "9a9b2921edd117163c30a2963fd3d0ae",
     "url": "/poker/index.html"
   },
   {
-    "revision": "c2b689b3dfdd97abbd3d",
+    "revision": "4bafff5ed70adbe25d7e",
     "url": "/poker/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "e63d0ff5ef431772a5f8",
+    "revision": "8a78127c038bf37b2299",
     "url": "/poker/static/css/main.5337afa8.chunk.css"
   },
   {
-    "revision": "c2b689b3dfdd97abbd3d",
-    "url": "/poker/static/js/2.7e8a3b50.chunk.js"
+    "revision": "4bafff5ed70adbe25d7e",
+    "url": "/poker/static/js/2.b5e6cbfc.chunk.js"
   },
   {
     "revision": "53e943b2733f1787c5b3bfc6fe3aac25",
-    "url": "/poker/static/js/2.7e8a3b50.chunk.js.LICENSE.txt"
+    "url": "/poker/static/js/2.b5e6cbfc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e63d0ff5ef431772a5f8",
-    "url": "/poker/static/js/main.33a9185a.chunk.js"
+    "revision": "8a78127c038bf37b2299",
+    "url": "/poker/static/js/main.22f7fa73.chunk.js"
   },
   {
     "revision": "15a945513e60dd4bde1b",
