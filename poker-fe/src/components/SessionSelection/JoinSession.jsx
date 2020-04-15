@@ -17,7 +17,10 @@ const JoinSessionCard = ({ history, setSessionId }) => {
       </Card.Header>
       <Card.Body className="text-center">
         <div className="d-block mb-2">
-          <img src="http://via.placeholder.com/200x200" alt="join session" />
+          <img
+            src="http://via.placeholder.com/200x200/72448d"
+            alt="join session"
+          />
         </div>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="sessionId">

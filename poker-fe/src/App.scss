@@ -1,0 +1,129 @@
+body {
+  font-family: "Quicksand", sans-serif !important;
+  background-image: url("https://user-images.githubusercontent.com/1968160/79362365-ee9b5780-7f5f-11ea-9eeb-df92d5761ca4.jpg");
+  background-position: center;
+  background-repeat: repeat;
+}
+
+.logo {
+  font-weight: 800;
+}
+nav {
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+  &::after {
+    background-image: url("https://37wc2u1h6vfn3hxdx3zwv1h1-wpengine.netdna-ssl.com/wp-content/themes/spalab/images/header-bg.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    content: "";
+    height: 129px;
+    position: absolute;
+    bottom: -64px;
+    right: 32px;
+    width: 290px;
+    z-index: 99;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.members-list {
+  height: 60vh;
+  overflow-y: auto;
+}
+.bg-purple {
+  background-color: #72448d;
+}
+div {
+  &.card {
+    border: 1px solid #e7e7e7;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+    transition: all 300ms linear 0s;
+    -webkit-transition: all 300ms linear 0s;
+    -moz-transition: all 300ms linear 0s;
+    -ms-transition: all 300ms linear 0s;
+    -o-transition: all 300ms linear 0s;
+    z-index: 1;
+    &:hover {
+      background-color: #f3e9f7;
+    }
+    .card-header {
+      background-color: rgba(0, 0, 0, 0);
+      border-bottom: 0 none;
+      border-radius: 5px !important;
+      text-transform: uppercase;
+      padding-top: 15px;
+      font-size: 18px;
+      &::after {
+        content: " ";
+        background-color: rgba(114, 68, 141, 0.7);
+        font-weight: bold;
+        position: absolute;
+        top: 46px;
+        left: 21%;
+        width: 60%;
+        height: 1px;
+        z-index: 888;
+      }
+    }
+  }
+}
+
+.btn-primary {
+  background-color: #72448d !important;
+  border-color: #72448d !important;
+  min-width: 100px;
+}
+form {
+  .form-control {
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 0;
+    color: rgb(134, 134, 134);
+    // padding: 15px;
+    display: block;
+    font-size: 14px;
+    margin: 10px 0 10px;
+    width: 100%;
+    &:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: #72448d;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(114, 68, 141, 0.25) !important;
+    }
+  }
+}
+
+.sessionName {
+  font-weight: 700 !important;
+}
+
+.selected-polls {
+  .row {
+    background-image: url(https://user-images.githubusercontent.com/1968160/79365775-8438e600-7f64-11ea-8c1b-3f75c727bc32.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-size: contain;
+    min-height: 30vh;
+    &:after {
+      background-color: rgba(114, 68, 141, 0.75);
+      content: " ";
+      position: absolute;
+      height: 30vh;
+      width: 100%;
+      top: 0px;
+      left: 0;
+      border-radius: 7px;
+    }
+  }
+}

@@ -9,7 +9,7 @@ import SessionSelection from "pages/SessionSelection";
 import JoinSession from "pages/JoinSession";
 import CreateSession from "pages/CreateSession";
 import Polling from "pages/Polling";
-import "./App.css";
+import "./App.scss";
 
 const hist = createBrowserHistory({
   basename: process.env.PUBLIC_URL,
@@ -29,7 +29,7 @@ function App() {
             path={"/join-session/:sessionId"}
             component={DefaultLayout(JoinSession)}
           />
-          <Route path='/' component={DefaultLayout(SessionSelection)} />
+          <Route path="/" component={DefaultLayout(SessionSelection)} />
         </Switch>
       </Router>
     </Provider>

@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const DefaultLayout = (PokerComponent) => {
   return (props) => (
     <>
-      <Navbar bg="dark" expand="lg">
+      <Navbar bg="purple" expand="lg">
         <Link to="/" className="text-light">
-          <h4 className="mt-1">Planning Poker</h4>
+          <h4 className="mt-1 logo">Planning Poker</h4>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
       </Navbar>
