@@ -45,19 +45,19 @@ const Polling = ({ pollType, userName, sessionId, sessionName }) => {
 
   return (
     <>
-      <Row className='justify-content-between h-100 mt-5'>
-        <Col sm='4' className='ml-1'>
-          <h4 className='pt-2'>{sessionName}</h4>
+      <Row className="justify-content-between h-100 mt-5">
+        <Col sm="4" className="ml-1">
+          <h4 className="pt-2 sessionName">{sessionName}</h4>
         </Col>
-        <Col sm='4'>
+        <Col sm="4">
           <PollingLink sessionId={sessionId} />
         </Col>
       </Row>
-      <Row className='h-100 mt-2'>
-        <Col sm='3'>
+      <Row className="h-100 mt-2">
+        <Col sm="3">
           <Members polls={polls} />
         </Col>
-        <Col sm='9'>
+        <Col sm="9">
           <SelectedPolls polls={polls} showCards={showAllRecords()} />
           <AvailablePolls pollType={pollType} setPolls={handleCardSelection} />
         </Col>

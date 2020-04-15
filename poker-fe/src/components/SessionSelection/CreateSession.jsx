@@ -33,7 +33,7 @@ class CreateSessionCard extends Component {
         <Card.Body>
           <div className="d-block mb-2">
             <img
-              src="http://via.placeholder.com/200x200"
+              src="http://via.placeholder.com/200x200/72448d"
               alt="create session"
             />
           </div>
