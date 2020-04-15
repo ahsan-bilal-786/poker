@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 // import * as API from "api";
 import * as Action from "store/actions/polling";
 import Layout from "layouts/DefaultLayout";
-import { getBaseUrl } from "config";
 
 const AuthLayout = (PokerComponent) => {
   class Authentication extends React.Component {
@@ -24,7 +23,7 @@ const AuthLayout = (PokerComponent) => {
       }
     };
     redirectToHome = () => {
-      window.location.replace(getBaseUrl("/"));
+      window.location.replace("/");
     };
     render() {
       return (

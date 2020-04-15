@@ -1,7 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
 import store from "store/index";
-import { getBaseUrl } from "config";
 import createBrowserHistory from "history/createBrowserHistory";
 import { Router, Switch, Route } from "react-router-dom";
 import DefaultLayout from "layouts/DefaultLayout";
@@ -12,23 +11,22 @@ import CreateSession from "pages/CreateSession";
 import Polling from "pages/Polling";
 import "./App.css";
 
-const hist = createBrowserHistory();
+const hist = createBrowserHistory({
+  basename: process.env.PUBLIC_URL,
+});
 
 function App() {
   return (
     <Provider store={store}>
       <Router history={hist}>
         <Switch>
+          <Route path={"/polling/:sessionId"} component={AuthLayout(Polling)} />
           <Route
-            path={getBaseUrl("/polling/:sessionId")}
-            component={AuthLayout(Polling)}
-          />
-          <Route
-            path={getBaseUrl("/create-session/:sessionId")}
+            path={"/create-session/:sessionId"}
             component={AuthLayout(CreateSession)}
           />
           <Route
-            path={getBaseUrl("/join-session/:sessionId")}
+            path={"/join-session/:sessionId"}
             component={DefaultLayout(JoinSession)}
           />
           <Route path='/' component={DefaultLayout(SessionSelection)} />
