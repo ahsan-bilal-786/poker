@@ -11,9 +11,10 @@ const PollingLink = ({ sessionId }) => {
           placeholder='Polling Link'
           className='text-center'
           readOnly={true}
-          value={`http://localhost:3000/join-session/${
-            sessionId ? sessionId : ""
-          }`}
+          // value={`https://ahsan-bilal-786.github.io/poker/join-session/${
+          //   sessionId ? sessionId : ""
+          // }`}
+          value={`${sessionId ? sessionId : ""}`}
         />
       </Form.Group>
     </Form>

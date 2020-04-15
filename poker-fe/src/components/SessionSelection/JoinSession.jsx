@@ -12,27 +12,27 @@ const JoinSessionCard = ({ history, setSessionId }) => {
   };
   return (
     <Card>
-      <Card.Header as='h5' className='text-center'>
+      <Card.Header as="h5" className="text-center">
         Join Session
       </Card.Header>
-      <Card.Body className='text-center'>
-        <div className='d-block mb-2'>
-          <img src='http://via.placeholder.com/200x200' alt='join session' />
+      <Card.Body className="text-center">
+        <div className="d-block mb-2">
+          <img src="http://via.placeholder.com/200x200" alt="join session" />
         </div>
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId='sessionId'>
+          <Form.Group controlId="sessionId">
             <Form.Control
               required
-              type='text'
-              placeholder='Enter Session ID'
-              className='text-center'
+              type="text"
+              placeholder="Enter Session ID"
+              className="text-center"
               value={sessionId}
               onChange={(e) => {
                 handleSessionId(e.target.value);
               }}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>
+          <Button variant="primary" type="submit">
             Join
           </Button>
         </Form>
