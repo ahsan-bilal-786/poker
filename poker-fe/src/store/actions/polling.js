@@ -3,6 +3,7 @@ import {
   SET_SESSION_ID,
   SET_USER_NAME,
   SET_SESSION_NAME,
+  SET_POLLS,
 } from "store/actions/types";
 
 /**
@@ -23,4 +24,8 @@ export const setSessionName = (sessionName) => {
 
 export const setUserName = (userName) => {
   return { type: SET_USER_NAME, userName };
+};
+
+export const setPolls = (polls) => {
+  return { type: SET_POLLS, polls };
 };

@@ -28,6 +28,7 @@ const CreateSessionForm = ({
             <Form.Control
               required
               type='text'
+              autoComplete={false}
               name='sessionName'
               placeholder='Enter Session name'
               className='text-center'
@@ -39,6 +40,7 @@ const CreateSessionForm = ({
             <Form.Label>Your Name</Form.Label>
             <Form.Control
               required
+              autoComplete={false}
               type='text'
               name='userName'
               placeholder='Enter your name'
