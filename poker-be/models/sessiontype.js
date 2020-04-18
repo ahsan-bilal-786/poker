@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * Session Type Modals
+ */
 module.exports = (sequelize, DataTypes) => {
   const SessionType = sequelize.define(
     "SessionType",
