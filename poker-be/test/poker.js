@@ -143,7 +143,7 @@ describe.only("Poker!", () => {
       });
   });
 
-  it.only("Fetch all session polls", (done) => {
+  it("Fetch all session polls", (done) => {
     const pollData = () => {
       return {
         userName: faker.name.firstName(),
