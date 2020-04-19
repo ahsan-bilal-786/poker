@@ -1,4 +1,4 @@
-var { Session, SessionType } = require("../models");
+var { Session, SessionType, Pollings } = require("../models");
 
 const saveSession = (req, res, next) => {
   console.log(req.body);
@@ -29,7 +29,26 @@ const getSession = (req, res, next) => {
     });
 };
 
+const savePoll = (req, res, next) => {
+  const payload = {
+    userName: req.body.userName,
+    poll: req.body.poll,
+    sessionId: req.params.sessionId,
+  };
+  return Pollings.create(payload)
+    .then((data) => {
+      return res.json(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the Session.",
+      });
+    });
+};
+
 module.exports = {
   saveSession,
   getSession,
+  savePoll,
 };
