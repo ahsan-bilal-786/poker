@@ -46,8 +46,26 @@ const savePoll = (req, res, next) => {
     });
 };
 
+const getPolls = (req, res, next) => {
+  return Pollings.findAll({
+    where: {
+      sessionId: req.params.sessionId,
+    },
+  })
+    .then((data) => {
+      return res.json(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the Session.",
+      });
+    });
+};
+
 module.exports = {
   saveSession,
   getSession,
   savePoll,
+  getPolls,
 };
