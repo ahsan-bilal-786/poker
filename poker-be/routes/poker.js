@@ -1,6 +1,11 @@
 var express = require("express");
 var router = express.Router();
-var { saveSession, getSession, savePoll } = require("../controllers/poker");
+var {
+  saveSession,
+  getSession,
+  savePoll,
+  getPolls,
+} = require("../controllers/poker");
 
 /** Save Poker Session */
 router.route("/").post(saveSession);
@@ -9,6 +14,6 @@ router.route("/").post(saveSession);
 /* GET users listing. */
 router.route("/:id").get(getSession);
 
-router.route("/:sessionId/poll").post(savePoll);
+router.route("/:sessionId/poll").post(savePoll).get(getPolls);
 
 module.exports = router;
