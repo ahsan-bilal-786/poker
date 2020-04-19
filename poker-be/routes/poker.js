@@ -9,14 +9,4 @@ router.route("/").post(saveSession);
 /* GET users listing. */
 router.route("/:id").get(getSession);
 
-/** Poll To Poker Session */
-router.post("/poll", function (req, res, next) {
-  res.json({ content: "Poll To Poker Session." });
-});
-
-/** GET users listing. */
-router.get("/poll", function (req, res, next) {
-  res.json({ content: "GET users listing." });
-});
-
 module.exports = router;
