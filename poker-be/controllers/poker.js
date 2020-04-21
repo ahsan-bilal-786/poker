@@ -23,7 +23,7 @@ const getSession = (req, res, next) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Session.",
+          err.message || "Some error occurred while fetching the Session.",
       });
     });
 };
@@ -40,8 +40,7 @@ const savePoll = (req, res, next) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Session.",
+        message: err.message || "Some error occurred while saving the Poll.",
       });
     });
 };
@@ -57,8 +56,22 @@ const getPolls = (req, res, next) => {
     })
     .catch((err) => {
       res.status(500).send({
+        message: err.message || "Some error occurred while fetching Polls.",
+      });
+    });
+};
+
+const getSessionTypes = (req, res, next) => {
+  return SessionType.findAll({
+    attributes: ["id", "title"],
+  })
+    .then((data) => {
+      return res.json(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Session.",
+          err.message || "Some error occurred while fetch Session Types.",
       });
     });
 };
@@ -68,4 +81,5 @@ module.exports = {
   getSession,
   savePoll,
   getPolls,
+  getSessionTypes,
 };
