@@ -27,6 +27,7 @@ class CreateSessionCard extends Component {
 
   render() {
     const { pollType } = this.state;
+    const { pollTypesList } = this.props;
     return (
       <Card className="text-center">
         <Card.Header as="h5">Create Session</Card.Header>
@@ -44,8 +45,10 @@ class CreateSessionCard extends Component {
                 onChange={this.onChange}
                 value={pollType}
               >
-                <option value="fibnocci">Fibonacci</option>
-                <option value="t-shirt">T-Shirt</option>
+                {pollTypesList.length > 0 &&
+                  pollTypesList.map((poll) => (
+                    <option value={poll.title}>{poll.title}</option>
+                  ))}
               </Form.Control>
             </Form.Group>
             <Button variant="primary" type="submit">
