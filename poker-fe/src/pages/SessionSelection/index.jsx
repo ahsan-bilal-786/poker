@@ -14,6 +14,7 @@ const SessionSelection = ({
   setPollType,
   setSessionId,
   fetchPollTypesList,
+  pollTypesList,
 }) => {
   useEffect(() => {
     fetchPollTypesList();
@@ -25,6 +26,7 @@ const SessionSelection = ({
           history={history}
           setPollType={setPollType}
           setSessionId={setSessionId}
+          pollTypesList={pollTypesList}
         />
       </Col>
       <Col sm="6 ">
@@ -32,6 +34,12 @@ const SessionSelection = ({
       </Col>
     </Row>
   );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    pollTypesList: state.polling.pollTypesList,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -42,4 +50,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(SessionSelection);
+export default connect(mapStateToProps, mapDispatchToProps)(SessionSelection);
