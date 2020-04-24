@@ -46,3 +46,19 @@ export const fetchPollTypesListAction = () => (dispatch) => {
       console.log(apiError);
     });
 };
+
+export const saveSessionAction = (title, creatorName) => (
+  dispatch,
+  getState
+) => {
+  const { pollType, pollTypesList } = getState().polling;
+  const selectedPoll = pollTypesList.find(
+    (poll) => poll.title.toLowerCase() === pollType.toLowerCase()
+  );
+  return api
+    .savePollingSession(title, creatorName, selectedPoll.id)
+    .then((apiResponse) => {})
+    .catch((apiError) => {
+      console.log(apiError);
+    });
+};
