@@ -57,7 +57,12 @@ export const saveSessionAction = (title, creatorName) => (
   );
   return api
     .savePollingSession(title, creatorName, selectedPoll.id)
-    .then((apiResponse) => {})
+    .then((apiResponse) => {
+      dispatch(setSessionId(apiResponse.id));
+      dispatch(setUserName(apiResponse.creatorName));
+      dispatch(setSessionName(apiResponse.title));
+      return apiResponse.id;
+    })
     .catch((apiError) => {
       console.log(apiError);
     });
