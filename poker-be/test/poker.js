@@ -3,6 +3,7 @@ const app = require("../app");
 const faker = require("faker");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
+const uuid = require("uuid").v4;
 
 const { expect } = chai;
 chai.use(chaiHttp);
@@ -21,6 +22,7 @@ describe.only("Poker!", () => {
           title: company,
           creatorName: firstName,
           sessionTypeId: session.id,
+          uuid: uuid(),
         })
         .end((err, res) => {
           expect(res).to.have.status(200);
