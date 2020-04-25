@@ -5,7 +5,7 @@ import {
   setUserName,
   setSessionName,
   setPollType,
-  setSessionId,
+  setsessionUuId,
 } from "store/actions/polling";
 import JoinSessionForm from "components/JoinSession/Form";
 
@@ -18,23 +18,23 @@ import JoinSessionForm from "components/JoinSession/Form";
 const JoinSession = ({
   history,
   match,
-  setSessionId,
+  setsessionUuId,
   setUserName,
   setSessionName,
   setPollType,
 }) => {
   useEffect(() => {
-    setSessionId(match.params.sessionId);
-  }, [match.params.sessionId, setSessionId]);
+    setsessionUuId(match.params.sessionUuId);
+  }, [match.params.sessionUuId, setsessionUuId]);
   return (
-    <Row className='align-items-center h-100 mt-5'>
-      <Col sm='6' className='mx-auto'>
+    <Row className="align-items-center h-100 mt-5">
+      <Col sm="6" className="mx-auto">
         <JoinSessionForm
           history={history}
           setUserName={setUserName}
           setSessionName={setSessionName}
           setPollType={setPollType}
-          sessionId={match.params.sessionId}
+          sessionUuId={match.params.sessionUuId}
         />
       </Col>
     </Row>
@@ -43,7 +43,7 @@ const JoinSession = ({
 const mapDispatchToProps = (dispatch) => {
   return {
     setUserName: (userName) => dispatch(setUserName(userName)),
-    setSessionId: (sessionId) => dispatch(setSessionId(sessionId)),
+    setsessionUuId: (sessionUuId) => dispatch(setsessionUuId(sessionUuId)),
     setSessionName: (sessionName) => dispatch(setSessionName(sessionName)),
     setPollType: (pollType) => dispatch(setPollType(pollType)),
   };

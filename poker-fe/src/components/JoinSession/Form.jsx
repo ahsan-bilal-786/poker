@@ -4,7 +4,7 @@ import * as API from "api";
 
 const JoinSessionForm = ({
   history,
-  sessionId,
+  sessionUuId,
   setUserName,
   setSessionName,
   setPollType,
@@ -13,12 +13,12 @@ const JoinSessionForm = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     if (userName !== "") {
-      const session = API.getSession(sessionId);
+      const session = API.getSession(sessionUuId);
       setUserName(userName);
       setSessionName(session.sessionName);
       setPollType(session.pollType);
-      API.joinSession(userName, sessionId);
-      history.push(`/polling/${sessionId}`);
+      API.joinSession(userName, sessionUuId);
+      history.push(`/polling/${sessionUuId}`);
     }
   };
   return (

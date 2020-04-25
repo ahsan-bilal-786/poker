@@ -6,12 +6,11 @@ import CreateSessionForm from "components/CreateSession/Form";
 
 const CreateSession = ({ history, match, pollType, saveSession }) => {
   return (
-    <Row className='align-items-center h-100 mt-5'>
-      <Col sm='6' className='mx-auto'>
+    <Row className="align-items-center h-100 mt-5">
+      <Col sm="6" className="mx-auto">
         <CreateSessionForm
           history={history}
           pollType={pollType}
-          sessionUuId={match.params.sessionId}
           saveSession={saveSession}
         />
       </Col>
