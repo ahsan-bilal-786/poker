@@ -5,6 +5,11 @@ module.exports = (sequelize, DataTypes) => {
     {
       title: DataTypes.STRING,
       creatorName: DataTypes.STRING,
+      uuid: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        unique: true,
+      },
     },
     {}
   );
