@@ -40,6 +40,7 @@ describe.only("Poker!", () => {
     let session = {
       title: faker.company.companyName(),
       creatorName: faker.name.firstName(),
+      uuid: uuid(),
     };
     let sessionId = -1;
     SessionType.findOne({
@@ -78,6 +79,7 @@ describe.only("Poker!", () => {
     let session = {
       title: faker.company.companyName(),
       creatorName: faker.name.firstName(),
+      uuid: uuid(),
     };
     let sessionId = -1;
     const payload = [pollData(), pollData(), pollData()];
@@ -120,24 +122,24 @@ describe.only("Poker!", () => {
          */
 
         expect(res[0]).to.have.status(200);
-        expect(res[0].userName).to.equals(payload[0].userName);
-        expect(res[0].creatorName).to.equals(payload[0].creatorName);
+        expect(res[0].body.userName).to.equals(payload[0].userName);
+        expect(res[0].body.creatorName).to.equals(payload[0].creatorName);
 
         /**
          * Verifying the data of Second session poll
          */
 
         expect(res[1]).to.have.status(200);
-        expect(res[1].userName).to.equals(payload[1].userName);
-        expect(res[1].creatorName).to.equals(payload[1].creatorName);
+        expect(res[1].body.userName).to.equals(payload[1].userName);
+        expect(res[1].body.creatorName).to.equals(payload[1].creatorName);
 
         /**
          * Verifying the data of third session poll
          */
 
         expect(res[2]).to.have.status(200);
-        expect(res[2].userName).to.equals(payload[2].userName);
-        expect(res[2].creatorName).to.equals(payload[2].creatorName);
+        expect(res[2].body.userName).to.equals(payload[2].userName);
+        expect(res[2].body.creatorName).to.equals(payload[2].creatorName);
 
         done();
       });

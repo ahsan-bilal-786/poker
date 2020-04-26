@@ -30,14 +30,22 @@ const getSession = (req, res, next) => {
 };
 
 const savePoll = (req, res, next) => {
-  const payload = {
-    userName: req.body.userName,
-    poll: req.body.poll,
-    sessionId: req.params.sessionId,
+  const { userName, poll } = req.body;
+  const { sessionId } = req.params;
+  const where = {
+    userName,
+    sessionId,
   };
-  return Pollings.create(payload)
-    .then((data) => {
-      return res.json(data);
+  return Pollings.findOne({ where })
+    .then((inst) => {
+      if (inst) {
+        return inst.update({ poll });
+      } else {
+        return Pollings.create({ userName, poll, sessionId });
+      }
+    })
+    .then((resp) => {
+      return res.json(resp);
     })
     .catch((err) => {
       res.status(500).send({
