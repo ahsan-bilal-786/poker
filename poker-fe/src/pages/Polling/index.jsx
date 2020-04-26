@@ -32,7 +32,10 @@ class Polling extends Component {
   setPolls = (polls) => this.setState({ polls });
 
   initiateRecursivePolls = () => {
-    this.interval = setTimeout(this.updatePolls, 3000);
+    this.interval = setTimeout(() => {
+      this.updatePolls();
+      this.initiateRecursivePolls();
+    }, 3000);
   };
 
   updatePolls = () => {
@@ -66,7 +69,6 @@ class Polling extends Component {
   render() {
     const { pollType, sessionUuId, sessionName } = this.props;
     const { polls } = this.state;
-    console.log("polls::::", polls);
     return (
       <>
         <Row className="justify-content-between h-100 mt-5">
