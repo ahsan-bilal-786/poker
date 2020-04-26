@@ -64,4 +64,37 @@ describe.only("Poker!", () => {
           });
       });
   });
+
+  it("Fetch Session BY UUid", (done) => {
+    const { Session, SessionType } = models;
+    const sessionType = { title: "t-shirts" };
+    let session = {
+      title: faker.company.companyName(),
+      creatorName: faker.name.firstName(),
+    };
+    let sessionId = -1;
+    SessionType.findOne({
+      where: sessionType,
+    })
+      .then((resp) => {
+        session = {
+          ...session,
+          sessionTypeId: resp.id,
+        };
+        sessionId = resp.id;
+        return Session.create(session);
+      })
+      .then((resp) => {
+        chai
+          .request(app)
+          .get(`/poker/${resp.id}`)
+          .end((err, res) => {
+            expect(res).to.have.status(200);
+            expect(res.body.creatorName).to.equals(session.creatorName);
+            expect(res.body.title).to.equals(session.title);
+            expect(res.body.sessionTypeId).to.equals(sessionId);
+            done();
+          });
+      });
+  });
 });

@@ -28,6 +28,22 @@ const getSession = (req, res, next) => {
     });
 };
 
+const getSessionByUuid = (req, res, next) => {
+  return Session.findOne({
+    where: {
+      uuid: req.params.uuid,
+    },
+  })
+    .then((data) => {
+      return res.json(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error fetching the Session by UUId.",
+      });
+    });
+};
+
 module.exports = {
   saveSession,
   getSession,
