@@ -105,9 +105,10 @@ export const setsessionByUuIdAction = (uuId) => (dispatch, getState) => {
   return api
     .getSessionByUuid(uuId)
     .then((apiResponse) => {
-      console.log(apiResponse);
+      dispatch(setSessionId(apiResponse.id));
       dispatch(setsessionUuId(uuId));
       dispatch(setSessionName(apiResponse.title));
+      dispatch(setPollType(apiResponse.SessionType.title));
       return apiResponse.id;
     })
     .catch((apiError) => {
