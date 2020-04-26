@@ -6,6 +6,7 @@ var {
   savePoll,
   getPolls,
   getSessionTypes,
+  getSessionByUuid,
 } = require("../controllers/poker");
 
 /** Save Poker Session */
@@ -16,6 +17,7 @@ router.route("/sessionTypes").get(getSessionTypes);
 
 /** Fetch Poker Session with Polling */
 /* GET users listing. */
+router.route("/uuid/:uuid").get(getSessionByUuid);
 router.route("/:id").get(getSession);
 
 router.route("/:sessionId/poll").post(savePoll).get(getPolls);

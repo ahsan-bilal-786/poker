@@ -68,6 +68,40 @@ describe.only("Poker!", () => {
       });
   });
 
+  it("Fetch Session By uuid", (done) => {
+    const { Session, SessionType } = models;
+    const sessionType = { title: "t-shirts" };
+    let session = {
+      title: faker.company.companyName(),
+      creatorName: faker.name.firstName(),
+      uuid: uuid(),
+    };
+    let sessionId = -1;
+    SessionType.findOne({
+      where: sessionType,
+    })
+      .then((resp) => {
+        session = {
+          ...session,
+          sessionTypeId: resp.id,
+        };
+        sessionId = resp.id;
+        return Session.create(session);
+      })
+      .then((resp) => {
+        chai
+          .request(app)
+          .get(`/poker/uuid/${session.uuid}`)
+          .end((err, res) => {
+            expect(res).to.have.status(200);
+            expect(res.body.creatorName).to.equals(session.creatorName);
+            expect(res.body.title).to.equals(session.title);
+            expect(res.body.sessionTypeId).to.equals(sessionId);
+            done();
+          });
+      });
+  });
+
   it("Save multiple session polls", (done) => {
     const pollData = () => {
       return {
