@@ -100,3 +100,16 @@ export const getSessionPollsAction = (sessionId) => (dispatch, getState) => {
       return Promise.reject(apiError);
     });
 };
+
+export const setsessionByUuIdAction = (uuId) => (dispatch, getState) => {
+  return api
+    .getSessionByUuid(uuId)
+    .then((apiResponse) => {
+      console.log("apiResponse:::", apiResponse);
+      // return apiResponse.uuid;
+      return apiResponse;
+    })
+    .catch((apiError) => {
+      return Promise.reject(apiError);
+    });
+};

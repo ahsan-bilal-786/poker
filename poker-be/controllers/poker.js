@@ -1,12 +1,13 @@
 var { Session, SessionType, Pollings } = require("../models");
 
 const saveSession = (req, res, next) => {
-  console.log(req.body);
+  console.log("================================", req.body);
   return Session.create(req.body)
     .then((data) => {
       return res.json(data);
     })
     .catch((err) => {
+      console.log("================================", err.message);
       res.status(500).send({
         message:
           err.message || "Some error occurred while creating the Session.",
@@ -24,7 +25,7 @@ const getSession = (req, res, next) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Session.",
+          err.message || "Some error occurred while fetching the Session.",
       });
     });
 };
