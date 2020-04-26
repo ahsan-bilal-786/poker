@@ -1,12 +1,13 @@
 var { Session, SessionType, Pollings } = require("../models");
 
 const saveSession = (req, res, next) => {
-  console.log(req.body);
+  console.log("================================", req.body);
   return Session.create(req.body)
     .then((data) => {
       return res.json(data);
     })
     .catch((err) => {
+      console.log("================================", err.message);
       res.status(500).send({
         message:
           err.message || "Some error occurred while creating the Session.",
@@ -30,19 +31,22 @@ const getSession = (req, res, next) => {
 };
 
 const savePoll = (req, res, next) => {
-  const payload = {
-    userName: req.body.userName,
-    poll: req.body.poll,
-    sessionId: req.params.sessionId,
+  const { userName, poll } = req.body;
+  const { sessionId } = req.params;
+  const where = {
+    userName,
+    sessionId,
   };
-  return Pollings.create(payload)
-    .then((data) => {
-      return res.json(data);
+  return Pollings.findOne({ where })
+    .then((inst) => {
+      if (inst) {
+        return inst.update({ poll });
+      } else {
+        return Pollings.create({ userName, poll, sessionId });
+      }
     })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while saving the Poll.",
-      });
+    .then((resp) => {
+      return res.json(resp);
     });
 };
 

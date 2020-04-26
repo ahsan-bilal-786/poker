@@ -40,6 +40,7 @@ describe.only("Poker!", () => {
     let session = {
       title: faker.company.companyName(),
       creatorName: faker.name.firstName(),
+      uuid: uuid(),
     };
     let sessionId = -1;
     SessionType.findOne({
@@ -67,7 +68,7 @@ describe.only("Poker!", () => {
       });
   });
 
-  it.only("Save multiple session polls", (done) => {
+  it("Save multiple session polls", (done) => {
     const pollData = () => {
       return {
         userName: faker.name.firstName(),
@@ -101,6 +102,7 @@ describe.only("Poker!", () => {
         session = {
           ...session,
           sessionTypeId: resp.id,
+          uuid: uuid(),
         };
         sessionId = resp.id;
         return Session.create(session);
@@ -168,6 +170,7 @@ describe.only("Poker!", () => {
         session = {
           ...session,
           sessionTypeId: resp.id,
+          uuid: uuid(),
         };
         return Session.create(session);
       })
