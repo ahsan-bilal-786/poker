@@ -1,7 +1,8 @@
 import * as api from "api";
 import {
-  SET_POLL_TYPE,
   SET_SESSION_ID,
+  SET_POLL_TYPE,
+  SET_SESSION_UUID,
   SET_USER_NAME,
   SET_SESSION_NAME,
   SET_POLLS,
@@ -18,6 +19,10 @@ export const setPollType = (pollType) => {
 
 export const setSessionId = (sessionId) => {
   return { type: SET_SESSION_ID, sessionId };
+};
+
+export const setsessionUuId = (sessionUuId) => {
+  return { type: SET_SESSION_UUID, sessionUuId };
 };
 
 export const setSessionName = (sessionName) => {
@@ -41,6 +46,27 @@ export const fetchPollTypesListAction = () => (dispatch) => {
     .fetchPollTypesList()
     .then((apiResponse) => {
       dispatch(setPollTypesList(apiResponse));
+    })
+    .catch((apiError) => {
+      console.log(apiError);
+    });
+};
+
+export const saveSessionAction = (title, creatorName) => (
+  dispatch,
+  getState
+) => {
+  const { pollType, pollTypesList, sessionUuId } = getState().polling;
+  const selectedPoll = pollTypesList.find(
+    (poll) => poll.title.toLowerCase() === pollType.toLowerCase()
+  );
+  return api
+    .savePollingSession(title, sessionUuId, creatorName, selectedPoll.id)
+    .then((apiResponse) => {
+      dispatch(setSessionId(apiResponse.id));
+      dispatch(setUserName(apiResponse.creatorName));
+      dispatch(setSessionName(apiResponse.title));
+      return apiResponse.uuid;
     })
     .catch((apiError) => {
       console.log(apiError);
