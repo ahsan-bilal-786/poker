@@ -48,4 +48,5 @@ const getSessionByUuid = (req, res, next) => {
 module.exports = {
   saveSession,
   getSession,
+  getSessionByUuid,
 };

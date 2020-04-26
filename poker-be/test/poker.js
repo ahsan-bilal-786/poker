@@ -40,6 +40,7 @@ describe.only("Poker!", () => {
     let session = {
       title: faker.company.companyName(),
       creatorName: faker.name.firstName(),
+      uuid: uuid(),
     };
     let sessionId = -1;
     SessionType.findOne({
@@ -73,6 +74,7 @@ describe.only("Poker!", () => {
     let session = {
       title: faker.company.companyName(),
       creatorName: faker.name.firstName(),
+      uuid: uuid(),
     };
     let sessionId = -1;
     SessionType.findOne({
@@ -89,7 +91,7 @@ describe.only("Poker!", () => {
       .then((resp) => {
         chai
           .request(app)
-          .get(`/poker/${resp.id}`)
+          .get(`/poker/uuid/${session.uuid}`)
           .end((err, res) => {
             expect(res).to.have.status(200);
             expect(res.body.creatorName).to.equals(session.creatorName);

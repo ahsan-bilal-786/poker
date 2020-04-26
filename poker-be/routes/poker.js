@@ -11,7 +11,7 @@ router.route("/").post(saveSession);
 
 /** Fetch Poker Session with Polling */
 /* GET users listing. */
+router.route("/uuid/:uuid").get(getSessionByUuid);
 router.route("/:id").get(getSession);
-router.route("/:uuid").get(getSessionByUuid);
 
 module.exports = router;
