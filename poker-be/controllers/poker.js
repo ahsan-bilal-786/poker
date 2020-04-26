@@ -34,6 +34,7 @@ const getSessionByUuid = (req, res, next) => {
     where: {
       uuid: req.params.uuid,
     },
+    include: [{ model: SessionType }],
   })
     .then((data) => {
       return res.json(data);
