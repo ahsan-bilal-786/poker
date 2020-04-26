@@ -23,7 +23,7 @@ var corsOptions = {
 };
 
 // Then pass them to cors:
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
