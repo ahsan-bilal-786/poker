@@ -24,25 +24,44 @@ const getSession = (req, res, next) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while fetching the Session.",
+          err.message || "Some error occurred while creating the Session.",
       });
     });
 };
 
-const savePoll = (req, res, next) => {
-  const payload = {
-    userName: req.body.userName,
-    poll: req.body.poll,
-    sessionId: req.params.sessionId,
-  };
-  return Pollings.create(payload)
+const getSessionByUuid = (req, res, next) => {
+  return Session.findOne({
+    where: {
+      uuid: req.params.uuid,
+    },
+  })
     .then((data) => {
       return res.json(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while saving the Poll.",
+        message: err.message || "Some error occurred while fetching Polls.",
       });
+    });
+};
+
+const savePoll = (req, res, next) => {
+  const { userName, poll } = req.body;
+  const { sessionId } = req.params;
+  const where = {
+    userName,
+    sessionId,
+  };
+  return Pollings.findOne({ where })
+    .then((inst) => {
+      if (inst) {
+        return inst.update({ poll });
+      } else {
+        return Pollings.create({ userName, poll, sessionId });
+      }
+    })
+    .then((resp) => {
+      return res.json(resp);
     });
 };
 
@@ -83,4 +102,5 @@ module.exports = {
   savePoll,
   getPolls,
   getSessionTypes,
+  getSessionByUuid,
 };

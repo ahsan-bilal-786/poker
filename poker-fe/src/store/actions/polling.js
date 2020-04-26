@@ -72,3 +72,31 @@ export const saveSessionAction = (title, creatorName) => (
       console.log(apiError);
     });
 };
+
+export const savePollToSessionAction = (userName, poll) => (
+  dispatch,
+  getState
+) => {
+  const { sessionId } = getState().polling;
+  return api
+    .savePollToSession(userName, poll, sessionId)
+    .then((apiResponse) => {
+      return apiResponse.id;
+    })
+    .catch((apiError) => {
+      console.log(apiError);
+    });
+};
+
+export const getSessionPollsAction = (sessionId) => (dispatch, getState) => {
+  return api
+    .getSessionPolls(sessionId)
+    .then((apiResponse) => {
+      // console.log("apiResponse:::", apiResponse);
+      // return apiResponse.uuid;
+      return apiResponse;
+    })
+    .catch((apiError) => {
+      return Promise.reject(apiError);
+    });
+};
