@@ -12,7 +12,7 @@ describe.only("Poker!", () => {
     const firstName = faker.name.firstName();
     const company = faker.company.companyName();
 
-    const session = models.SessionType.findOne({
+    models.SessionType.findOne({
       where: { title: "Fibonacci" },
     }).then((session) => {
       chai
@@ -32,5 +32,73 @@ describe.only("Poker!", () => {
           done();
         });
     });
+  });
+
+  it("Fetch Session", (done) => {
+    const { Session, SessionType } = models;
+    const sessionType = { title: "t-shirts" };
+    let session = {
+      title: faker.company.companyName(),
+      creatorName: faker.name.firstName(),
+      uuid: uuid(),
+    };
+    let sessionId = -1;
+    SessionType.findOne({
+      where: sessionType,
+    })
+      .then((resp) => {
+        session = {
+          ...session,
+          sessionTypeId: resp.id,
+        };
+        sessionId = resp.id;
+        return Session.create(session);
+      })
+      .then((resp) => {
+        chai
+          .request(app)
+          .get(`/poker/${resp.id}`)
+          .end((err, res) => {
+            expect(res).to.have.status(200);
+            expect(res.body.creatorName).to.equals(session.creatorName);
+            expect(res.body.title).to.equals(session.title);
+            expect(res.body.sessionTypeId).to.equals(sessionId);
+            done();
+          });
+      });
+  });
+
+  it("Fetch Session BY UUid", (done) => {
+    const { Session, SessionType } = models;
+    const sessionType = { title: "t-shirts" };
+    let session = {
+      title: faker.company.companyName(),
+      creatorName: faker.name.firstName(),
+      uuid: uuid(),
+    };
+    let sessionId = -1;
+    SessionType.findOne({
+      where: sessionType,
+    })
+      .then((resp) => {
+        session = {
+          ...session,
+          sessionTypeId: resp.id,
+        };
+        sessionId = resp.id;
+        return Session.create(session);
+      })
+      .then((resp) => {
+        chai
+          .request(app)
+          .get(`/poker/uuid/${session.uuid}`)
+          .end((err, res) => {
+            expect(res).to.have.status(200);
+            expect(res.body.creatorName).to.equals(session.creatorName);
+            expect(res.body.title).to.equals(session.title);
+            expect(res.body.sessionTypeId).to.equals(sessionId);
+            done();
+          });
+      });
   });
 });
