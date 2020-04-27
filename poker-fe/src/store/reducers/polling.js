@@ -4,9 +4,11 @@ import {
   SET_SESSION_NAME,
   SET_USER_NAME,
   SET_POLLS,
+  SET_POLL_TYPES_LIST,
 } from "store/actions/types";
 
 const initialState = {
+  pollTypesList: [],
   pollType: null,
   sessionId: null,
   sessionName: null,
@@ -16,6 +18,9 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
+    case SET_POLL_TYPES_LIST:
+      state = { ...state, pollTypesList: action.pollTypesList };
+      break;
     case SET_POLL_TYPE:
       state = { ...state, pollType: action.pollType };
       break;

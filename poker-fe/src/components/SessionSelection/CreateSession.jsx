@@ -6,9 +6,20 @@ class CreateSessionCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pollType: "fibnocci",
+      pollType: "",
     };
   }
+
+  componentDidUpdate = () => {
+    const { pollTypesList } = this.props;
+    const { pollType } = this.state;
+    if (
+      Array.isArray(pollTypesList) &&
+      pollTypesList.length > 0 &&
+      pollType === ""
+    )
+      this.setState({ pollType: pollTypesList[0].title });
+  };
 
   onChange = (e) => {
     const { value } = e.target;
@@ -27,6 +38,7 @@ class CreateSessionCard extends Component {
 
   render() {
     const { pollType } = this.state;
+    const { pollTypesList } = this.props;
     return (
       <Card className="text-center">
         <Card.Header as="h5">Create Session</Card.Header>
@@ -44,8 +56,12 @@ class CreateSessionCard extends Component {
                 onChange={this.onChange}
                 value={pollType}
               >
-                <option value="fibnocci">Fibonacci</option>
-                <option value="t-shirt">T-Shirt</option>
+                {pollTypesList.length > 0 &&
+                  pollTypesList.map((poll) => (
+                    <option key={poll.id} value={poll.title}>
+                      {poll.title}
+                    </option>
+                  ))}
               </Form.Control>
             </Form.Group>
             <Button variant="primary" type="submit">
