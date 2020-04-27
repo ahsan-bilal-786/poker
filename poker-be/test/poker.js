@@ -137,6 +137,7 @@ describe.only("Poker!", () => {
         session = {
           ...session,
           sessionTypeId: resp.id,
+          uuid: uuid(),
         };
         sessionId = resp.id;
         return Session.create(session);
@@ -205,6 +206,7 @@ describe.only("Poker!", () => {
         session = {
           ...session,
           sessionTypeId: resp.id,
+          uuid: uuid(),
         };
         return Session.create(session);
       })

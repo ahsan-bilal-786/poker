@@ -1,7 +1,6 @@
 var { Session, SessionType, Pollings } = require("../models");
 
 const saveSession = (req, res, next) => {
-  console.log(req.body);
   return Session.create(req.body)
     .then((data) => {
       return res.json(data);
@@ -24,7 +23,7 @@ const getSession = (req, res, next) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Session.",
+          err.message || "Some error occurred while fetching the Session.",
       });
     });
 };
@@ -34,6 +33,7 @@ const getSessionByUuid = (req, res, next) => {
     where: {
       uuid: req.params.uuid,
     },
+    include: [{ model: SessionType }],
   })
     .then((data) => {
       return res.json(data);
