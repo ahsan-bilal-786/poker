@@ -1,0 +1,14 @@
+input[type="text"] {
+  &.polling-uuid-field {
+    width: 100%;
+    padding-right: 35px;
+  }
+}
+
+.copy-to-clipboard-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: #72448d !important;
+  border-left: 1px solid rgba(114, 68, 141, 0.6) !important;
+}
